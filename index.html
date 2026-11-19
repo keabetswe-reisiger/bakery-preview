@@ -209,6 +209,28 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
   .pitem.has-img{flex-direction:column}
   .pitem.has-img img{width:100%;aspect-ratio:16/9;min-height:0}
 }
+
+/* ---------- Bigger photos, menu squeezed beside them ---------- */
+.menu .pitem.has-img{grid-column:1/-1}
+.pitem.has-img img{width:62%;min-height:320px}
+.pitem.has-img .pbody{padding:16px 22px}
+@media(max-width:900px){.pitem.has-img img{width:55%;min-height:260px}}
+@media(max-width:640px){.pitem.has-img img{width:100%;min-height:0;aspect-ratio:4/3}}
+
+/* ---------- tidy: capped photo height, roomier text beside it ---------- */
+.pitem.has-img img{width:58%;height:360px;min-height:0;aspect-ratio:auto;object-position:center}
+.pitem.has-img .pbody{padding:24px 32px}
+.pitem.has-img .pbody h4{font-size:30px;margin-bottom:10px}
+.pitem.has-img .prices li{font-size:17px;padding:8px 0}
+.pitem.has-img .prices li b{font-size:19px}
+@media(max-width:900px){.pitem.has-img img{width:52%;height:300px}.pitem.has-img .pbody{padding:18px 20px}.pitem.has-img .pbody h4{font-size:26px}}
+@media(max-width:640px){
+  .pitem.has-img img{width:100%;height:auto;aspect-ratio:4/3}
+  .pitem.has-img .pbody{align-self:stretch;padding:16px 18px 18px}
+  .pitem.has-img .pbody h4{font-size:24px}
+  .pitem.has-img .prices li{font-size:15px;padding:5px 0}
+  .pitem.has-img .prices li b{font-size:17px}
+}
 </style>
 </head>
 <body>
