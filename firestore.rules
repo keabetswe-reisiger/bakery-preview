@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Customers may only ADD an order. They can never read, change or delete orders.
+    // Only the owner's signed-in account (her email) can read and manage orders.
+    // Her cost prices: only she can see them.
+    match /settings/{doc} {
+      allow read, write: if request.auth != null && request.auth.token.email == 'OWNER_EMAIL_HERE';
+    }
+
+    match /orders/{orderId} {
+      allow create: if
+        request.resource.data.keys().hasOnly(['number','name','phone','method','address','neededOn','notes','items','total','deposit','payment','status','createdAt'])
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.name is string && request.resource.data.name.size() <= 80
+        && request.resource.data.phone is string && request.resource.data.phone.size() <= 20
+        && request.resource.data.notes is string && request.resource.data.notes.size() <= 300
+        && request.resource.data.address is string && request.resource.data.address.size() <= 200
+        && request.resource.data.items is list && request.resource.data.items.size() > 0 && request.resource.data.items.size() <= 30
+        && request.resource.data.total is number && request.resource.data.total > 0 && request.resource.data.total < 100000;
+      allow read, update, delete: if request.auth != null
+        && request.auth.token.email == 'OWNER_EMAIL_HERE';
+    }
+  }
+}

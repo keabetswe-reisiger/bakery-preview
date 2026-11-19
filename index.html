@@ -4,8 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>TLC Treats · Preview</title>
-<meta name="description" content="Design preview of TLC Treats. Ordering is switched off.">
+<title>TLC Treats | Home-baked goodies in Ga-Rankuwa</title>
+<meta name="description" content="Order home-baked scones, muffins, tarts and desserts from TLC Treats in Ga-Rankuwa, Zone 1. Open Monday to Friday, 08:00 to 15:00.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#b08d57">
+<link rel="apple-touch-icon" href="img/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Geist:wght@400;500;600;700&display=swap">
 <style>
@@ -231,11 +234,54 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
   .pitem.has-img .prices li{font-size:15px;padding:5px 0}
   .pitem.has-img .prices li b{font-size:17px}
 }
+
+[hidden]{display:none!important}
+/* ---------- Ordering ---------- */
+.prices li{align-items:center}
+.qty{display:inline-flex;align-items:center;gap:4px;margin-left:6px;flex:none}
+.qty button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);background:#fff;color:var(--navy);font:700 18px/1 Geist,sans-serif;cursor:pointer;padding:0}
+.qty button:active{background:var(--gold);color:#fff}
+.qty button[disabled]{opacity:.35;cursor:default}
+.qty output{min-width:24px;text-align:center;font-weight:700;color:var(--navy)}
+.pitem.has-qty{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+#cartbar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px max(16px,env(safe-area-inset-left)) max(10px,env(safe-area-inset-bottom));
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:none}
+#cartbar.show{display:block}
+#cartbar .in{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+#cartbar .sum{font-weight:700;color:var(--navy)}#cartbar .sum small{display:block;font-weight:500;color:var(--muted)}
+body.has-cart{padding-bottom:84px}
+dialog.big{max-width:560px;max-height:92vh;overflow:auto;padding:26px}
+dialog h3.display{font-size:26px}
+.lines{list-style:none;margin:0 0 12px;padding:0}
+.lines li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1.5px dashed var(--line);font-size:15px}
+.lines li span small{display:block;color:var(--muted)}
+.totals{display:grid;gap:4px;margin:0 0 18px;font-weight:600}
+.totals div{display:flex;justify-content:space-between}
+.totals .dep{color:var(--gold2)}
+form.co{display:grid;gap:14px}
+form.co label{display:grid;gap:5px;font-weight:600;font-size:14px;color:var(--navy)}
+form.co input,form.co textarea,form.co select{font:inherit;font-size:16px;padding:12px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--navy);width:100%}
+form.co input:focus,form.co textarea:focus{outline:3px solid var(--gold2);outline-offset:1px}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+legend{font-weight:700;font-size:14px;margin-bottom:6px;color:var(--navy);padding:0}
+.choice{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;font-weight:600}
+.choice input{width:20px;height:20px;margin-top:2px;accent-color:#8a6a35;flex:none}
+.choice small{display:block;font-weight:400;color:var(--muted)}
+.choice:has(input:checked){border-color:var(--gold);background:var(--bg2)}
+.err{color:#b3261e;font-weight:600;margin:0;font-size:14px}
+.hint{color:var(--muted);font-size:13px;margin:0}
+.dlgbtns{display:grid;gap:10px;margin-top:6px}
+.dlgbtns .btn{justify-content:center;width:100%}
+.btn.wa{background:#1f8f4a;border-color:#1f8f4a;color:#fff}
+.btn.ghost{background:transparent}
+.ordno{font-family:Fraunces,serif;font-size:28px;color:var(--gold2);margin:4px 0 10px}
+.note{background:var(--bg2);border-radius:14px;padding:12px 14px;font-size:14px;color:var(--navy);margin:0 0 14px}
+.warn{background:#fff4e5;color:#7a4b00}
+.contact a{color:var(--gold2);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:640px){.qty button{width:38px;height:38px}.prices li{flex-wrap:wrap}.prices li i{display:none}.prices li span{flex:1}}
 </style>
 </head>
 <body>
-
-<div class="demo-bar" role="note">Preview only. <span>Ordering is switched off until this website is purchased.</span></div>
 
 <div class="wrap">
   <nav>
@@ -245,10 +291,9 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
     </a>
     <div class="navlinks">
       <a href="#menu">Menu</a>
-      <a href="#buckets">Bucket orders</a>
+      <a href="#buckets">Big orders</a>
       <a href="#how">How to order</a>
       <a href="#info">Order info</a>
-      <a href="#orders">Order book</a>
     </div>
   </nav>
 
@@ -258,12 +303,12 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
       <p>Home-baked goodies, tarts and desserts from Ga-Rankuwa, made with tender loving care.</p>
       <p class="hours">Open Monday to Friday, 08:00 to 15:00</p>
       <div class="btns">
-        <a class="btn solid" href="#menu">See the menu</a>
-        <button class="btn locked" data-demo type="button">Order now</button>
+        <a class="btn solid" href="#menu">Order now</a>
+        <a class="btn" href="#how">How it works</a>
       </div>
     </div>
     <div class="bucket-photo">
-      <img src="img/sugar-doughnuts.jpg" alt="A plate of sugar-coated doughnuts">
+      <img src="img/sugar-doughnuts.jpg" alt="A plate of sugar-coated donuts">
       <div class="stamp display">Baked fresh at home</div>
     </div>
   </header>
@@ -272,18 +317,8 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
 <main class="wrap">
   <section id="menu">
     <h2 class="display">The menu</h2>
-    <p class="lead">Everything is baked in small batches. Sizes are in litres. Prices are in rands.</p>
-
-    <h3 class="cat display">Baked goodies</h3>
-    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Scones</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R690</b></li><li><span>10 Litres</span><i></i><b>R440</b></li><li><span>5 Litres</span><i></i><b>R290</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Biscuits</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R650</b></li><li><span>5 Litres</span><i></i><b>R350</b></li></ul></div></article><article class="pitem has-img"><img src="img/crunch-muffins.jpg" alt="Tray of muffins with a crunchy golden topping" loading="lazy"><div class="pbody"><h4 class="display">Muffins</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem has-img"><img src="img/rusks.jpg" alt="A white bucket full of oats crunch squares" loading="lazy"><div class="pbody"><h4 class="display">Oats Crunch</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R680</b></li><li><span>5 Litres</span><i></i><b>R370</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Lamingtons (Red Cakes)</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Fat Cakes (Vetkoek)</h4><ul class="prices"><li><span>Price</span><i></i><b>R4</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Banana Loaf</h4><ul class="prices"><li><span>Price</span><i></i><b>R30</b></li></ul></div></article></div>
-
-    <h3 class="cat display" id="tarts">Tarts</h3>
-    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Milk Tart (per tray)</h4><p>Creamy, smooth milk custard with a touch of cinnamon on a buttery pastry base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R50</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Peppermint Tart (per tray)</h4><p>Creamy peppermint and rich chocolate layered over a delicious biscuit base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R74</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Jam Tarts</h4><p>Buttery pastry filled with sweet, fruity jam for a delicious burst of flavour.</p><ul class="prices"><li><span>20 Litres</span><i></i><b>R1000</b></li><li><span>10 Litres</span><i></i><b>R550</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article></div>
-
-    <h3 class="cat display">Desserts</h3>
-    <div class="menu"><article class="pitem has-img"><img src="img/sugar-doughnuts.jpg" alt="Sugar-coated donuts" loading="lazy"><div class="pbody"><h4 class="display">Donuts</h4><ul class="prices"><li><span>Each</span><i></i><b>R16</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cheese Cake (per tray)</h4><ul class="prices"><li><span>Per tray</span><i></i><b>R190</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cinnamon Bun</h4><ul class="prices"><li><span>Price</span><i></i><b>R20</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Croissants</h4><ul class="prices"><li><span>Price</span><i></i><b>R25</b></li></ul></div></article></div>
-
-    <p class="order-note"><button class="btn locked" data-demo type="button">Add to order</button></p>
+    <p class="lead">Everything is baked in small batches. Tap + to add to your order. Sizes are in litres and prices are in rands.</p>
+    <div id="menu-root" aria-live="polite"></div>
   </section>
 
   <section id="buckets">
@@ -291,7 +326,7 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
       <div>
         <h2 class="display">Buckets for big days</h2>
         <p>Feeding a crowd? Choose 20, 10 or 5 litres of your favourite bakes, or mix a few in one order. Please order in advance for large events.</p>
-        <button class="btn locked" data-demo type="button">Request a bucket order</button>
+        <a class="btn solid" href="#menu">Start your order</a>
       </div>
       <div class="occasions" aria-label="Popular occasions">
         <span>Birthdays</span><span>Church events</span><span>School functions</span><span>Office tea</span><span>Family gatherings</span><span>Memorial services</span>
@@ -301,71 +336,84 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
 
   <section id="how">
     <h2 class="display">How to order</h2>
-    <p class="lead">Three simple steps once ordering is switched on.</p>
+    <p class="lead">Three simple steps.</p>
     <ol class="steps">
-      <li><b>Choose your treats</b><span>Pick from the menu and the size you’d like.</span></li>
-      <li><b>Send your order</b><span>Add your name, number and the day you need it.</span></li>
-      <li><b>Collect or get it delivered</b><span>Pick up fresh from her kitchen, or arrange delivery nearby.</span></li>
+      <li><b>Choose your treats</b><span>Tap + on the menu to pick what you would like and the size.</span></li>
+      <li><b>Send your order</b><span>Add your name, number and the day you need it, then send it on WhatsApp.</span></li>
+      <li><b>Enjoy</b><span>Collect your order fresh from our kitchen, or have it delivered to your door.</span></li>
     </ol>
   </section>
 
   <section id="info">
     <h2 class="display">Order info</h2>
     <div class="infogrid">
-      <div class="infocard"><b class="display">Payment</b><p>50% deposit confirms your order. Transfers ONLY into Capitec bank upon request.</p></div>
-      <div class="infocard"><b class="display">Deliveries</b><p>Weekends (at a fee depending on distance).</p></div>
-      <div class="infocard"><b class="display">Lead time</b><p>Please order in advance to secure availability.</p></div>
+      <div class="infocard"><b class="display">Payment</b><p id="pay-info">A 50% deposit confirms your order. We accept transfers into our Capitec account only, and share the details on request.</p></div>
+      <div class="infocard"><b class="display">Deliveries</b><p>Available on weekends, for a small fee that depends on the distance.</p></div>
+      <div class="infocard"><b class="display">Lead time</b><p>Please order in advance so we can reserve your date.</p></div>
     </div>
-    <div class="contact"><b class="display">Miss TLC Treats</b><span>Ga-Rankuwa, Zone 1</span><span class="phone">+27 78 204 3547</span></div>
-  </section>
-
-  <section id="orders">
-    <h2 class="display">Her order book</h2>
-    <p class="lead">Behind the scenes, she’ll see every order in one place: who ordered, what, and when it’s due.</p>
-    <div class="book">
-      <div class="table-scroll">
-        <table aria-hidden="true">
-          <thead><tr><th>Customer</th><th>Order</th><th>Due</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td>Thandi M.</td><td>10 litres muffins</td><td>Saturday</td><td>Baking</td></tr>
-            <tr><td>Pastor Dube</td><td>20 litres scones</td><td>Sunday</td><td>Confirmed</td></tr>
-            <tr><td>Lerato K.</td><td>2 trays milk tart</td><td>Today</td><td>Ready</td></tr>
-            <tr><td>Sipho N.</td><td>5 litres oats crunch</td><td>Friday</td><td>New</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="lock">
-        <div>
-          <b class="display">Unlocks on purchase</b>
-          <p>The order book, customer list and order alerts are switched off in this preview.</p>
-        </div>
-      </div>
-    </div>
+    <div class="contact"><b class="display">Miss TLC Treats</b><span>Ga-Rankuwa, Zone 1</span><a href="tel:+27782043547">+27 78 204 3547</a></div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    This is a design preview of TLC Treats. It is the property of its developers and is not for public use until purchased. No orders, payments or personal details are taken on this page.
+    Made with tender loving care, one batch at a time. Thank you for supporting our small business.
   </div>
 </footer>
 
-<dialog id="demo" aria-labelledby="demo-title">
-  <h3 id="demo-title" class="display">Preview only</h3>
-  <p>Ordering isn’t switched on yet. This feature will work once the website is purchased.</p>
-  <button class="btn solid" type="button" id="demo-close">Got it</button>
+<div id="cartbar" role="region" aria-label="Your order">
+  <div class="in">
+    <div class="sum"><span id="cart-count">0 items</span><small id="cart-total">R0</small></div>
+    <button class="btn solid" id="open-checkout" type="button">Review order</button>
+  </div>
+</div>
+
+<dialog id="checkout" class="big" aria-labelledby="co-title">
+  <h3 class="display" id="co-title">Your order</h3>
+  <ul class="lines" id="co-lines"></ul>
+  <div class="totals">
+    <div><span>Total</span><span id="co-total"></span></div>
+    <div class="dep"><span>Deposit to confirm (<span id="co-pct"></span>%)</span><span id="co-dep"></span></div>
+  </div>
+  <form class="co" id="co-form" novalidate>
+    <label>Your name<input id="f-name" autocomplete="name" required maxlength="80"></label>
+    <label>Phone / WhatsApp number<input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="e.g. 078 123 4567"></label>
+    <fieldset>
+      <legend>How would you like to receive it?</legend>
+      <label class="choice"><input type="radio" name="method" value="collect" checked><span>Collect from our kitchen<small>Monday to Friday, 08:00 to 15:00, Ga-Rankuwa Zone 1</small></span></label>
+      <label class="choice"><input type="radio" name="method" value="deliver"><span>Delivery<small>Weekends only, for a fee based on distance</small></span></label>
+    </fieldset>
+    <label id="addr-wrap" hidden>Delivery address<textarea id="f-addr" rows="2" maxlength="200"></textarea></label>
+    <label>Date needed<input id="f-date" type="date" required></label>
+    <p class="hint" id="date-hint"></p>
+    <label>Notes (optional)<textarea id="f-notes" rows="2" maxlength="300" placeholder="Allergies, message on a cake, anything we should know"></textarea></label>
+    <fieldset>
+      <legend>How will you pay the deposit?</legend>
+      <label class="choice"><input type="radio" name="pay" value="eft" checked><span>Bank transfer (Capitec)<small>We will send our banking details on WhatsApp</small></span></label>
+      <label class="choice" id="pay-card" hidden><input type="radio" name="pay" value="card"><span>Card payment (PayFast)<small>Pay your deposit securely online after you order</small></span></label>
+    </fieldset>
+    <p class="err" id="co-err" role="alert" hidden></p>
+    <div class="dlgbtns">
+      <button class="btn solid" type="submit" id="co-submit">Place my order</button>
+      <button class="btn" type="button" id="co-close">Keep browsing</button>
+    </div>
+  </form>
 </dialog>
 
-<script>
-(function(){
-  var dlg=document.getElementById('demo');
-  function open(e){e.preventDefault();
-    if(dlg.showModal){dlg.showModal();}else{alert('Preview only. Ordering will work once the website is purchased.');}
-  }
-  document.querySelectorAll('[data-demo]').forEach(function(b){b.addEventListener('click',open);});
-  document.getElementById('demo-close').addEventListener('click',function(){dlg.close();});
-  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
-})();
-</script>
+<dialog id="done" class="big" aria-labelledby="dn-title">
+  <h3 class="display" id="dn-title">Thank you, one last step</h3>
+  <p class="ordno" id="dn-no"></p>
+  <p class="note" id="dn-msg"></p>
+  <div class="dlgbtns">
+    <a class="btn wa" id="dn-wa" target="_blank" rel="noopener">Send my order on WhatsApp</a>
+    <form id="pf-form" method="post" hidden></form>
+    <button class="btn solid" id="dn-pay" type="button" hidden>Pay deposit by card</button>
+    <button class="btn" id="dn-close" type="button">Done</button>
+  </div>
+</dialog>
+
+<script src="menu.js"></script>
+<script src="db.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

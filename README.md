@@ -1,4 +1,3 @@
-# Bakery site – PREVIEW (not live)
+# TLC Treats
 
-Property of Reisiger until purchased. Ordering is disabled; no prices yet.
-Name: TLC Treats. Hours: Mon–Fri 08:30–15:30.
+Customer ordering site + owner order-book app for TLC Treats, Ga-Rankuwa. See **SETUP.md** (start here).

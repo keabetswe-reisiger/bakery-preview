@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>TLC Treats Orders</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#11203b">
+<link rel="apple-touch-icon" href="../img/icon-192.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Geist:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header class="top"><b class="display">TLC Treats <span>Orders</span></b><button id="logout" class="link" hidden>Sign out</button></header>
+
+<main id="screen-setup" hidden class="card center">
+  <h1 class="display">Almost ready</h1>
+  <p>The order book needs its online database before it can show orders. Until then, customer orders still reach you by WhatsApp.</p>
+  <p class="muted">Setup steps are in <b>SETUP.md</b>.</p>
+</main>
+
+<main id="screen-login" hidden class="card center">
+  <h1 class="display">Welcome back</h1>
+  <p class="muted">Sign in to see your orders.</p>
+  <form id="login" class="stack">
+    <label>Email<input id="l-email" type="email" autocomplete="username" required></label>
+    <label>Password<input id="l-pass" type="password" autocomplete="current-password" required></label>
+    <p class="err" id="l-err" hidden role="alert"></p>
+    <button class="btn" type="submit">Sign in</button>
+  </form>
+</main>
+
+<main id="screen-app" hidden>
+  <p class="demo" id="demo" hidden>Test mode: orders are stored in this browser only.</p>
+  <nav class="tabs" id="tabs" aria-label="Order views"></nav>
+  <div id="list"></div>
+</main>
+
+<script src="../menu.js"></script>
+<script src="../db.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
