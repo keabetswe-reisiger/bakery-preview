@@ -145,6 +145,31 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
   dialog{padding:24px}
   dialog .btn{width:100%;justify-content:center}
 }
+
+/* ---------- Price-list menu ---------- */
+.menu{align-items:stretch}
+.pitem{background:var(--glass);border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.pitem img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.pbody{padding:18px 22px 20px}
+.pbody h4{font-size:22px;margin:0 0 6px;line-height:1.15}
+.pbody p{margin:0 0 10px;color:var(--muted);font-size:15px}
+.prices{list-style:none;margin:6px 0 0;padding:0}
+.prices li{display:flex;align-items:baseline;gap:8px;padding:5px 0;font-size:15px}
+.prices li span{color:var(--muted)}
+.prices li i{flex:1;border-bottom:1.5px dotted var(--line);transform:translateY(-3px)}
+.prices li b{color:var(--gold2);font-size:17px}
+.cat{margin-top:34px}
+.order-note{margin:28px 0 0;text-align:center}
+.infogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.infocard{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:22px}
+.infocard b{display:block;font-size:20px;margin-bottom:6px;color:var(--gold2)}
+.infocard p{margin:0;color:var(--muted)}
+.contact{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;border:2px dashed var(--line);border-radius:24px;padding:20px 24px}
+.contact b{font-size:22px}
+.contact span{color:var(--muted)}
+.contact a{font-weight:700;color:var(--gold2);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
+@media(max-width:760px){.infogrid{grid-template-columns:1fr}}
+@media(max-width:640px){.order-note .btn{width:100%;justify-content:center}.contact{flex-direction:column;align-items:flex-start}.pbody{padding:16px 18px 18px}}
 </style>
 </head>
 <body>
@@ -161,6 +186,7 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
       <a href="#menu">Menu</a>
       <a href="#buckets">Bucket orders</a>
       <a href="#how">How to order</a>
+      <a href="#info">Order info</a>
       <a href="#orders">Order book</a>
     </div>
   </nav>
@@ -185,62 +211,25 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
 <main class="wrap">
   <section id="menu">
     <h2 class="display">The menu</h2>
-    <p class="lead">Everything is baked in small batches. Buy one to try, or fill a bucket for the whole family.</p>
+    <p class="lead">Everything is baked in small batches. Sizes are in litres. Prices are in rands.</p>
 
     <h3 class="cat display">Baked goodies</h3>
-    <div class="menu">
-      <article class="item">
-        <img src="img/sugar-doughnuts.jpg" alt="Sugar-coated doughnuts" loading="lazy">
-        <div class="body">
-          <h3 class="display">Sugar doughnuts</h3>
-          <p>Soft, fluffy fried rings rolled in sugar while they’re still warm.</p>
-          <ul class="sizes" aria-label="Sold as"><li>Single</li><li>Half dozen</li><li>Dozen</li><li>Bucket</li></ul>
-          <div class="foot"><span class="price">Price coming soon</span><button class="add" data-demo type="button">Add to order</button></div>
-        </div>
-      </article>
+    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Scones</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R690</b></li><li><span>10 Litres</span><i></i><b>R440</b></li><li><span>5 Litres</span><i></i><b>R290</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Biscuits</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R650</b></li><li><span>5 Litres</span><i></i><b>R350</b></li></ul></div></article><article class="pitem has-img"><img src="img/crunch-muffins.jpg" alt="Tray of muffins with a crunchy golden topping" loading="lazy"><div class="pbody"><h4 class="display">Muffins</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem has-img"><img src="img/rusks.jpg" alt="A white bucket full of oats crunch squares" loading="lazy"><div class="pbody"><h4 class="display">Oats Crunch</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R680</b></li><li><span>5 Litres</span><i></i><b>R370</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Lamingtons (Red Cakes)</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Fat Cakes (Vetkoek)</h4><ul class="prices"><li><span>Price</span><i></i><b>R4</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Banana Loaf</h4><ul class="prices"><li><span>Price</span><i></i><b>R30</b></li></ul></div></article></div>
 
-      <article class="item">
-        <img src="img/mini-muffins.jpg" alt="A bowl of carrot muffins in white paper cups" loading="lazy">
-        <div class="body">
-          <h3 class="display">Carrot muffins</h3>
-          <p>Moist, golden muffins baked with fresh grated carrot.</p>
-          <ul class="sizes" aria-label="Sold as"><li>Single</li><li>Half dozen</li><li>Dozen</li><li>Bucket</li></ul>
-          <div class="foot"><span class="price">Price coming soon</span><button class="add" data-demo type="button">Add to order</button></div>
-        </div>
-      </article>
+    <h3 class="cat display" id="tarts">Tarts</h3>
+    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Milk Tart (per tray)</h4><p>Creamy, smooth milk custard with a touch of cinnamon on a buttery pastry base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R50</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Peppermint Tart (per tray)</h4><p>Creamy peppermint and rich chocolate layered over a delicious biscuit base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R74</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Jam Tarts</h4><p>Buttery pastry filled with sweet, fruity jam for a delicious burst of flavour.</p><ul class="prices"><li><span>20 Litres</span><i></i><b>R1000</b></li><li><span>10 Litres</span><i></i><b>R550</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article></div>
 
-      <article class="item">
-        <img src="img/crunch-muffins.jpg" alt="A tray of muffins with a crunchy golden topping" loading="lazy">
-        <div class="body">
-          <h3 class="display">Crunch-top muffins</h3>
-          <p>Light vanilla muffins finished with a crunchy, golden topping.</p>
-          <ul class="sizes" aria-label="Sold as"><li>Single</li><li>Half dozen</li><li>Dozen</li><li>Bucket</li></ul>
-          <div class="foot"><span class="price">Price coming soon</span><button class="add" data-demo type="button">Add to order</button></div>
-        </div>
-      </article>
+    <h3 class="cat display">Desserts</h3>
+    <div class="menu"><article class="pitem has-img"><img src="img/sugar-doughnuts.jpg" alt="Sugar-coated donuts" loading="lazy"><div class="pbody"><h4 class="display">Donuts</h4><ul class="prices"><li><span>Each</span><i></i><b>R16</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cheese Cake (per tray)</h4><ul class="prices"><li><span>Per tray</span><i></i><b>R190</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cinnamon Bun</h4><ul class="prices"><li><span>Price</span><i></i><b>R20</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Croissants</h4><ul class="prices"><li><span>Price</span><i></i><b>R25</b></li></ul></div></article></div>
 
-      <article class="item">
-        <img src="img/rusks.jpg" alt="A white bucket full of oat crunchies" loading="lazy">
-        <div class="body">
-          <h3 class="display">Oat crunchies</h3>
-          <p>Golden oat squares, crisp on the edges and chewy inside. Perfect with tea.</p>
-          <ul class="sizes" aria-label="Sold as"><li>Single</li><li>Half dozen</li><li>Dozen</li><li>Bucket</li></ul>
-          <div class="foot"><span class="price">Price coming soon</span><button class="add" data-demo type="button">Add to order</button></div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="tarts" style="padding-top:0">
-    <h3 class="cat display">Tarts</h3>
-    <div class="coming"><b>Tarts are coming soon</b>Flavours and sizes will be added here before ordering opens.</div>
+    <p class="order-note"><button class="btn locked" data-demo type="button">Add to order</button></p>
   </section>
 
   <section id="buckets">
     <div class="buckets">
       <div>
         <h2 class="display">Buckets for big days</h2>
-        <p>Feeding a crowd? Order a full bucket of one treat, or mix muffins, doughnuts and crunchies in one order. Order a few days ahead for large events.</p>
+        <p>Feeding a crowd? Choose 20, 10 or 5 litres of your favourite bakes, or mix a few in one order. Please order in advance for large events.</p>
         <button class="btn locked" data-demo type="button">Request a bucket order</button>
       </div>
       <div class="occasions" aria-label="Popular occasions">
@@ -253,10 +242,20 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
     <h2 class="display">How to order</h2>
     <p class="lead">Three simple steps once ordering is switched on.</p>
     <ol class="steps">
-      <li><b>Choose your treats</b><span>Pick from the menu and how many you’d like.</span></li>
+      <li><b>Choose your treats</b><span>Pick from the menu and the size you’d like.</span></li>
       <li><b>Send your order</b><span>Add your name, number and the day you need it.</span></li>
       <li><b>Collect or get it delivered</b><span>Pick up fresh from her kitchen, or arrange delivery nearby.</span></li>
     </ol>
+  </section>
+
+  <section id="info">
+    <h2 class="display">Order info</h2>
+    <div class="infogrid">
+      <div class="infocard"><b class="display">Payment</b><p>50% deposit confirms your order. Transfers ONLY into Capitec bank upon request.</p></div>
+      <div class="infocard"><b class="display">Deliveries</b><p>Weekends (at a fee depending on distance).</p></div>
+      <div class="infocard"><b class="display">Lead time</b><p>Please order in advance to secure availability.</p></div>
+    </div>
+    <div class="contact"><b class="display">Miss TLC Treats</b><span>Ga-Rankuwa, Zone 1</span><a href="tel:+27782043547">+27 78 204 3547</a></div>
   </section>
 
   <section id="orders">
@@ -267,10 +266,10 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
         <table aria-hidden="true">
           <thead><tr><th>Customer</th><th>Order</th><th>Due</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td>Thandi M.</td><td>1 bucket, sugar doughnuts</td><td>Saturday</td><td>Baking</td></tr>
-            <tr><td>Pastor Dube</td><td>3 dozen carrot muffins</td><td>Sunday</td><td>Confirmed</td></tr>
-            <tr><td>Lerato K.</td><td>Half dozen crunch-top muffins</td><td>Today</td><td>Ready</td></tr>
-            <tr><td>Sipho N.</td><td>1 bucket, oat crunchies</td><td>Friday</td><td>New</td></tr>
+            <tr><td>Thandi M.</td><td>10 litres muffins</td><td>Saturday</td><td>Baking</td></tr>
+            <tr><td>Pastor Dube</td><td>20 litres scones</td><td>Sunday</td><td>Confirmed</td></tr>
+            <tr><td>Lerato K.</td><td>2 trays milk tart</td><td>Today</td><td>Ready</td></tr>
+            <tr><td>Sipho N.</td><td>5 litres oats crunch</td><td>Friday</td><td>New</td></tr>
           </tbody>
         </table>
       </div>
