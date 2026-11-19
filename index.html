@@ -170,6 +170,35 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
 .contact a{font-weight:700;color:var(--gold2);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
 @media(max-width:760px){.infogrid{grid-template-columns:1fr}}
 @media(max-width:640px){.order-note .btn{width:100%;justify-content:center}.contact{flex-direction:column;align-items:flex-start}.pbody{padding:16px 18px 18px}}
+
+/* ---------- Menu board (faded doughnut background, like her printed menu) ---------- */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:12px}
+.fcard{background:var(--glass);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.fcard img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.fbody{padding:16px 20px 20px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.fbody h3{font-size:24px;margin:0;line-height:1.1}
+.fprice{margin:0 0 6px;font-weight:700;color:var(--gold2)}
+.board{position:relative;border-radius:28px;overflow:hidden;padding:clamp(22px,4vw,44px);border:1px solid var(--line);
+  background:linear-gradient(rgba(255,255,255,.80),rgba(255,255,255,.80)),url(img/sugar-doughnuts.jpg) center/cover no-repeat}
+.bcols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px)}
+.bh{font-family:Geist,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.32em;font-size:15px;color:#b5524a;margin:0 0 12px;padding-bottom:12px;border-bottom:1.5px dashed rgba(17,32,59,.4)}
+.bnote{margin:0 0 6px;font-size:13px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.bt{width:100%;border-collapse:collapse}
+.bt th,.bt td{padding:10px 0;text-align:right;font-size:15px;border-bottom:1.5px dashed rgba(17,32,59,.3)}
+.bt thead th{font-size:12px;color:var(--muted);font-weight:600;padding:4px 0 6px;letter-spacing:.04em}
+.bt tbody th{text-align:left;font-weight:700;color:var(--navy);padding-right:8px}
+.bt td{font-weight:600;color:var(--navy)}
+.bl{list-style:none;margin:0;padding:0}
+.bl>li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1.5px dashed rgba(17,32,59,.3);font-weight:700;color:var(--navy)}
+.bl>li b{white-space:nowrap}
+.tl>li{display:block}
+.tn{display:flex;justify-content:space-between;gap:12px}
+.tn small{font-weight:500;color:var(--muted)}
+.tl p{margin:4px 0 0;font-weight:400;font-size:14.5px;color:#2d3a55}
+.contact .phone{font-weight:700;color:var(--gold2)}
+@media(max-width:820px){.feat{grid-template-columns:1fr}.bcols{grid-template-columns:1fr}}
+@media(max-width:640px){.board{padding:20px 16px}.bt th,.bt td{font-size:14px}.bh{letter-spacing:.22em}.fbody .add{width:100%;justify-content:center}}
 </style>
 </head>
 <body>
@@ -195,7 +224,7 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
     <div>
       <h1 class="display">TLC<span class="line2">Treats</span></h1>
       <p>Home-baked goodies and tarts, made with tender loving care.</p>
-      <p class="hours">Open Monday to Friday, 08:30 to 15:30</p>
+      <p class="hours">Open Monday to Friday, 08:00 to 15:00</p>
       <div class="btns">
         <a class="btn solid" href="#menu">See the menu</a>
         <button class="btn locked" data-demo type="button">Order now</button>
@@ -212,16 +241,35 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
   <section id="menu">
     <h2 class="display">The menu</h2>
     <p class="lead">Everything is baked in small batches. Sizes are in litres. Prices are in rands.</p>
+    
+    <div class="feat">
+      <article class="fcard"><img src="img/sugar-doughnuts.jpg" alt="Sugar-coated donuts" loading="lazy"><div class="fbody"><h3 class="display">Donuts</h3><p class="fprice">R16 each</p><button class="add" data-demo type="button">Add to order</button></div></article>
+      <article class="fcard"><img src="img/crunch-muffins.jpg" alt="A tray of muffins with a crunchy golden topping" loading="lazy"><div class="fbody"><h3 class="display">Muffins</h3><p class="fprice">From R300 a bucket</p><button class="add" data-demo type="button">Add to order</button></div></article>
+      <article class="fcard"><img src="img/rusks.jpg" alt="A white bucket full of oats crunch squares" loading="lazy"><div class="fbody"><h3 class="display">Oats Crunch</h3><p class="fprice">From R370 a bucket</p><button class="add" data-demo type="button">Add to order</button></div></article>
+    </div>
 
-    <h3 class="cat display">Baked goodies</h3>
-    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Scones</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R690</b></li><li><span>10 Litres</span><i></i><b>R440</b></li><li><span>5 Litres</span><i></i><b>R290</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Biscuits</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R650</b></li><li><span>5 Litres</span><i></i><b>R350</b></li></ul></div></article><article class="pitem has-img"><img src="img/crunch-muffins.jpg" alt="Tray of muffins with a crunchy golden topping" loading="lazy"><div class="pbody"><h4 class="display">Muffins</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem has-img"><img src="img/rusks.jpg" alt="A white bucket full of oats crunch squares" loading="lazy"><div class="pbody"><h4 class="display">Oats Crunch</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R680</b></li><li><span>5 Litres</span><i></i><b>R370</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Lamingtons (Red Cakes)</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Fat Cakes (Vetkoek)</h4><ul class="prices"><li><span>Price</span><i></i><b>R4</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Banana Loaf</h4><ul class="prices"><li><span>Price</span><i></i><b>R30</b></li></ul></div></article></div>
-
-    <h3 class="cat display" id="tarts">Tarts</h3>
-    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Milk Tart (per tray)</h4><p>Creamy, smooth milk custard with a touch of cinnamon on a buttery pastry base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R50</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Peppermint Tart (per tray)</h4><p>Creamy peppermint and rich chocolate layered over a delicious biscuit base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R74</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Jam Tarts</h4><p>Buttery pastry filled with sweet, fruity jam for a delicious burst of flavour.</p><ul class="prices"><li><span>20 Litres</span><i></i><b>R1000</b></li><li><span>10 Litres</span><i></i><b>R550</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article></div>
-
-    <h3 class="cat display">Desserts</h3>
-    <div class="menu"><article class="pitem has-img"><img src="img/sugar-doughnuts.jpg" alt="Sugar-coated donuts" loading="lazy"><div class="pbody"><h4 class="display">Donuts</h4><ul class="prices"><li><span>Each</span><i></i><b>R16</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cheese Cake (per tray)</h4><ul class="prices"><li><span>Per tray</span><i></i><b>R190</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cinnamon Bun</h4><ul class="prices"><li><span>Price</span><i></i><b>R20</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Croissants</h4><ul class="prices"><li><span>Price</span><i></i><b>R25</b></li></ul></div></article></div>
-
+    <h3 class="cat display">Full price list</h3>
+    <div class="board">
+      <div class="bcols">
+        <div class="bcol">
+          <h3 class="bh">Baked goodies</h3>
+          <p class="bnote">By the bucket</p>
+          <table class="bt"><thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">20 Litres</th><th scope="col">10 Litres</th><th scope="col">5 Litres</th></tr></thead><tbody><tr><th scope="row">Scones</th><td>R690</td><td>R440</td><td>R290</td></tr><tr><th scope="row">Biscuits</th><td>R1100</td><td>R650</td><td>R350</td></tr><tr><th scope="row">Muffins</th><td>R1200</td><td>R600</td><td>R300</td></tr><tr><th scope="row">Oats Crunch</th><td>R1100</td><td>R680</td><td>R370</td></tr><tr><th scope="row">Lamingtons (Red Cakes)</th><td>R1200</td><td>R600</td><td>R300</td></tr><tr><th scope="row">Jam Tarts</th><td>R1000</td><td>R550</td><td>R300</td></tr></tbody></table>
+          <p class="bnote" style="margin-top:22px">Single items</p>
+          <ul class="bl"><li><span>Fat Cakes (Vetkoek)</span><b>R4</b></li><li><span>Banana Loaf</span><b>R30</b></li></ul>
+        </div>
+        <div class="bcol">
+          <h3 class="bh">Tarts</h3>
+          <ul class="bl tl">
+            <li><div class="tn"><span>Milk Tart <small>(per tray)</small></span><b>R50</b></div><p>Creamy, smooth milk custard with a touch of cinnamon on a buttery pastry base.</p></li>
+            <li><div class="tn"><span>Peppermint Tart <small>(per tray)</small></span><b>R74</b></div><p>Creamy peppermint and rich chocolate layered over a delicious biscuit base.</p></li>
+            <li><div class="tn"><span>Jam Tarts <small>(by the bucket, see table)</small></span></div><p>Buttery pastry filled with sweet, fruity jam for a delicious burst of flavour.</p></li>
+          </ul>
+          <h3 class="bh" style="margin-top:34px">Desserts</h3>
+          <ul class="bl"><li><span>Donuts</span><b>R16</b></li><li><span>Cheese Cake (per tray)</span><b>R190</b></li><li><span>Cinnamon Bun</span><b>R20</b></li><li><span>Croissants</span><b>R25</b></li></ul>
+        </div>
+      </div>
+    </div>
     <p class="order-note"><button class="btn locked" data-demo type="button">Add to order</button></p>
   </section>
 
@@ -255,7 +303,7 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
       <div class="infocard"><b class="display">Deliveries</b><p>Weekends (at a fee depending on distance).</p></div>
       <div class="infocard"><b class="display">Lead time</b><p>Please order in advance to secure availability.</p></div>
     </div>
-    <div class="contact"><b class="display">Miss TLC Treats</b><span>Ga-Rankuwa, Zone 1</span><a href="tel:+27782043547">+27 78 204 3547</a></div>
+    <div class="contact"><b class="display">Miss TLC Treats</b><span>Ga-Rankuwa, Zone 1</span><span class="phone">+27 78 204 3547</span></div>
   </section>
 
   <section id="orders">
