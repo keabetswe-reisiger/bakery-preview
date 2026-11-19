@@ -199,6 +199,16 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
 .contact .phone{font-weight:700;color:var(--gold2)}
 @media(max-width:820px){.feat{grid-template-columns:1fr}.bcols{grid-template-columns:1fr}}
 @media(max-width:640px){.board{padding:20px 16px}.bt th,.bt td{font-size:14px}.bh{letter-spacing:.22em}.fbody .add{width:100%;justify-content:center}}
+
+/* ---------- Menu in parts, photo beside each item ---------- */
+.menu{align-items:stretch}
+.pitem.has-img{flex-direction:row}
+.pitem.has-img img{width:42%;aspect-ratio:auto;height:auto;min-height:150px;object-fit:cover;flex:none}
+.pitem.has-img .pbody{flex:1;min-width:0;align-self:center}
+@media(max-width:640px){
+  .pitem.has-img{flex-direction:column}
+  .pitem.has-img img{width:100%;aspect-ratio:16/9;min-height:0}
+}
 </style>
 </head>
 <body>
@@ -213,7 +223,6 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
     </a>
     <div class="navlinks">
       <a href="#menu">Menu</a>
-      <a href="#price-list">Prices</a>
       <a href="#buckets">Bucket orders</a>
       <a href="#how">How to order</a>
       <a href="#info">Order info</a>
@@ -242,35 +251,16 @@ footer{padding-bottom:max(56px,calc(env(safe-area-inset-bottom) + 24px))}
   <section id="menu">
     <h2 class="display">The menu</h2>
     <p class="lead">Everything is baked in small batches. Sizes are in litres. Prices are in rands.</p>
-    
-    <div class="feat">
-      <article class="fcard"><img src="img/sugar-doughnuts.jpg" alt="Sugar-coated donuts" loading="lazy"><div class="fbody"><h3 class="display">Donuts</h3><p class="fprice">R16 each</p><button class="add" data-demo type="button">Add to order</button></div></article>
-      <article class="fcard"><img src="img/crunch-muffins.jpg" alt="A tray of muffins with a crunchy golden topping" loading="lazy"><div class="fbody"><h3 class="display">Muffins</h3><p class="fprice">From R300 a bucket</p><button class="add" data-demo type="button">Add to order</button></div></article>
-      <article class="fcard"><img src="img/rusks.jpg" alt="A white bucket full of oats crunch squares" loading="lazy"><div class="fbody"><h3 class="display">Oats Crunch</h3><p class="fprice">From R370 a bucket</p><button class="add" data-demo type="button">Add to order</button></div></article>
-    </div>
 
-    <h3 class="cat display" id="price-list">Full price list</h3>
-    <div class="board">
-      <div class="bcols">
-        <div class="bcol">
-          <h3 class="bh">Baked goodies</h3>
-          <p class="bnote">By the bucket</p>
-          <table class="bt"><thead><tr><th scope="col"><span class="sr">Item</span></th><th scope="col">20 Litres</th><th scope="col">10 Litres</th><th scope="col">5 Litres</th></tr></thead><tbody><tr><th scope="row">Scones</th><td>R690</td><td>R440</td><td>R290</td></tr><tr><th scope="row">Biscuits</th><td>R1100</td><td>R650</td><td>R350</td></tr><tr><th scope="row">Muffins</th><td>R1200</td><td>R600</td><td>R300</td></tr><tr><th scope="row">Oats Crunch</th><td>R1100</td><td>R680</td><td>R370</td></tr><tr><th scope="row">Lamingtons (Red Cakes)</th><td>R1200</td><td>R600</td><td>R300</td></tr><tr><th scope="row">Jam Tarts</th><td>R1000</td><td>R550</td><td>R300</td></tr></tbody></table>
-          <p class="bnote" style="margin-top:22px">Single items</p>
-          <ul class="bl"><li><span>Fat Cakes (Vetkoek)</span><b>R4</b></li><li><span>Banana Loaf</span><b>R30</b></li></ul>
-        </div>
-        <div class="bcol">
-          <h3 class="bh">Tarts</h3>
-          <ul class="bl tl">
-            <li><div class="tn"><span>Milk Tart <small>(per tray)</small></span><b>R50</b></div><p>Creamy, smooth milk custard with a touch of cinnamon on a buttery pastry base.</p></li>
-            <li><div class="tn"><span>Peppermint Tart <small>(per tray)</small></span><b>R74</b></div><p>Creamy peppermint and rich chocolate layered over a delicious biscuit base.</p></li>
-            <li><div class="tn"><span>Jam Tarts <small>(by the bucket, see table)</small></span></div><p>Buttery pastry filled with sweet, fruity jam for a delicious burst of flavour.</p></li>
-          </ul>
-          <h3 class="bh" style="margin-top:34px">Desserts</h3>
-          <ul class="bl"><li><span>Donuts</span><b>R16</b></li><li><span>Cheese Cake (per tray)</span><b>R190</b></li><li><span>Cinnamon Bun</span><b>R20</b></li><li><span>Croissants</span><b>R25</b></li></ul>
-        </div>
-      </div>
-    </div>
+    <h3 class="cat display">Baked goodies</h3>
+    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Scones</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R690</b></li><li><span>10 Litres</span><i></i><b>R440</b></li><li><span>5 Litres</span><i></i><b>R290</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Biscuits</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R650</b></li><li><span>5 Litres</span><i></i><b>R350</b></li></ul></div></article><article class="pitem has-img"><img src="img/crunch-muffins.jpg" alt="Tray of muffins with a crunchy golden topping" loading="lazy"><div class="pbody"><h4 class="display">Muffins</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem has-img"><img src="img/rusks.jpg" alt="A white bucket full of oats crunch squares" loading="lazy"><div class="pbody"><h4 class="display">Oats Crunch</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1100</b></li><li><span>10 Litres</span><i></i><b>R680</b></li><li><span>5 Litres</span><i></i><b>R370</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Lamingtons (Red Cakes)</h4><ul class="prices"><li><span>20 Litres</span><i></i><b>R1200</b></li><li><span>10 Litres</span><i></i><b>R600</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Fat Cakes (Vetkoek)</h4><ul class="prices"><li><span>Price</span><i></i><b>R4</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Banana Loaf</h4><ul class="prices"><li><span>Price</span><i></i><b>R30</b></li></ul></div></article></div>
+
+    <h3 class="cat display" id="tarts">Tarts</h3>
+    <div class="menu"><article class="pitem"><div class="pbody"><h4 class="display">Milk Tart (per tray)</h4><p>Creamy, smooth milk custard with a touch of cinnamon on a buttery pastry base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R50</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Peppermint Tart (per tray)</h4><p>Creamy peppermint and rich chocolate layered over a delicious biscuit base.</p><ul class="prices"><li><span>Per tray</span><i></i><b>R74</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Jam Tarts</h4><p>Buttery pastry filled with sweet, fruity jam for a delicious burst of flavour.</p><ul class="prices"><li><span>20 Litres</span><i></i><b>R1000</b></li><li><span>10 Litres</span><i></i><b>R550</b></li><li><span>5 Litres</span><i></i><b>R300</b></li></ul></div></article></div>
+
+    <h3 class="cat display">Desserts</h3>
+    <div class="menu"><article class="pitem has-img"><img src="img/sugar-doughnuts.jpg" alt="Sugar-coated donuts" loading="lazy"><div class="pbody"><h4 class="display">Donuts</h4><ul class="prices"><li><span>Each</span><i></i><b>R16</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cheese Cake (per tray)</h4><ul class="prices"><li><span>Per tray</span><i></i><b>R190</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Cinnamon Bun</h4><ul class="prices"><li><span>Price</span><i></i><b>R20</b></li></ul></div></article><article class="pitem"><div class="pbody"><h4 class="display">Croissants</h4><ul class="prices"><li><span>Price</span><i></i><b>R25</b></li></ul></div></article></div>
+
     <p class="order-note"><button class="btn locked" data-demo type="button">Add to order</button></p>
   </section>
 
